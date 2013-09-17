@@ -11,7 +11,7 @@ module SslRoutes
       def enforce_protocols(&block)
         cattr_accessor :parameter, :secure_session, :enable_ssl
         self.parameter      = :protocol
-        self.secure_session = true
+        self.secure_session = false
         self.enable_ssl     = false
         yield self if block_given?
         before_filter :ensure_protocol if self.enable_ssl
